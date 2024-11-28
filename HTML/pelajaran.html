@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X TKJ 2</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        /* Body & general styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin-top: 0px; /* Menambah jarak untuk menghindari navbar sticky terpotong */
+            margin:0%;
+            background-image: url(../Foto/tkj1.jpg);
+            background-size: cover;
+            background-attachment: fixed; 
+            font-family: MEB;
+        }
+        @font-face {
+            font-family: 'MEB';
+            src: url('../Font/MEB.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between; /* Menempatkan logo di kiri dan menu di kanan */
+            align-items: center;
+            background-color: #231f69;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            color: #fff;
+        }
+
+        .navbar .logo img {
+            height: 100px;
+            width: 320px;
+        }
+
+        /* Menu Links */
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li {
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 10px;
+            color: #fff;
+            text-decoration: none;
+            padding: 100px 13px 5px;
+            line-height: 1.5em;
+            display: block;
+            border-radius: 10px;
+            transition: transform 0.3s ease, color 0.3s ease;
+           
+        }
+
+        .nav-links a:hover {
+            color: #d83d00; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            opacity: 1; 
+            transform: translateY(-8px) scale(1.1);
+        }
+
+        /* Hamburger Icon */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 30px;
+            color: #fff;
+        }
+
+        /* Mobile Navbar */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            width: 250px;
+            transition: left 0.3s ease;
+            padding-top: 60px;
+            z-index: 999;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-nav ul li {
+            margin: 20px 0;
+        }
+
+        .mobile-nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        .mobile-nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Media Queries untuk responsif */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .mobile-nav.active {
+                left: 0;
+            }
+        }
+
+        /* Container Styling */
+        .container {
+            width: 100%;
+            height: auto; 
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.459);
+        }
+
+        .day-container {
+            background: linear-gradient(to bottom,#231f69,#231f69,#231f69,#d83d006b);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 150px;
+      width: 45%;
+      margin: 10px;
+    }
+
+    .day {
+      background-color: #1b1853;
+      color: white;
+      padding: 10px;
+      border-radius: 6px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 5px;
+    }
+
+    .lesson {
+        background-color: #d83d00;
+      color: white;
+      padding: 10px;
+      border-radius: 6px;
+      font-weight: bold;
+      text-align: center;
+      margin: 5px;
+    }
+
+        /* Styling untuk header */
+        @font-face {
+            font-family: 'coalition';
+            src: url('../Font/coalition.ttf') format('truetype');
+        }
+
+        .judul-container {
+            background: linear-gradient( rgba(0, 0, 0, 0.459), rgba(0, 0, 0, 0));
+            color: #d83d00;
+            font-size: 40px;
+            padding: 40px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            align-items: center;
+            backdrop-filter: blur(50%);
+            font-family: 'coalition', sans-serif;
+            text-shadow: black;
+        }
+        .kaki-container {
+            width: 100%;
+            background: linear-gradient(#00000067, #231f69);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
+            font-size: 12px;
+        }
+
+        .kaki-container a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .kaki-container a:hover {
+            color: #d83d00;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="../Foto/newtkjlogo.png"></img>
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html" title="Main Home">Main Home</a></li>
+                <li><a href="data_siswa.html" title="Profil Siswa">Profil Siswa</a></li>
+                <li><a href="data_guru.html" title="Profil Guru Matpel">Profil Guru Matpel</a></li>
+                <li><a href="struktur.html" title="Struktur Kelas">Struktur Kelas</a></li>
+                <li><a href="data_piket.html" title="Daftar Piket">Daftar Piket</a></li>
+                <li><a href="pelajaran.html" title="Jadwal Pelajaran">Jadwal Pelajaran</a></li>
+                <li><a href="kegiatan.html" title="Kegiatan Kelas">Kegiatan Kelas</a></li>
+                <li><a href="galeri.html" title="Gallery Foto">Gallery Foto</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                &#9776;
+            </div>
+        </nav>
+        <div class="mobile-nav" id="mobile-nav">
+            <ul>
+                <li><a href="home.html" title="Main Home">Main Home</a></li>
+                <li><a href="data_siswa.html" title="Profil Siswa">Profil Siswa</a></li>
+                <li><a href="data_guru.html" title="Profil Guru Matpel">Profil Guru Matpel</a></li>
+                <li><a href="struktur.html" title="Struktur Kelas">Struktur Kelas</a></li>
+                <li><a href="data_piket.html" title="Daftar Piket">Daftar Piket</a></li>
+                <li><a href="pelajaran.html" title="Jadwal Pelajaran">Jadwal Pelajaran</a></li>
+                <li><a href="kegiatan.html" title="Kegiatan Kelas">Kegiatan Kelas</a></li>
+                <li><a href="galeri.html" title="Gallery Foto">Gallery Foto</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="judul-container">Jadwal Pelajaran</div>
+
+        <div class="day-container">
+            <div class="day">Senin</div>
+            <div class="lesson">
+              <span>B.Inggris</span>
+            </div>
+            <div class="lesson">
+              <span>IPAS</span>
+            </div>
+            <div class="lesson">
+              <span>Matematika</span>
+            </div>
+            <div class="lesson">
+                <span>BK</span>
+            </div>
+            <div class="lesson">
+                <span>B.Indonesia</span>
+            </div>
+        </div>
+        <div class="day-container">
+            <div class="day">Selasa</div>
+            <div class="lesson">
+              <span>- - - - -</span>
+            </div>
+            <div class="lesson">
+              <span>- - - - -</span>
+            </div>
+            <div class="lesson">
+              <span>Dasar-Dasar Produktif TJKT</span>
+            </div>
+            <div class="lesson">
+                <span>- - - - -</span>
+            </div>
+            <div class="lesson">
+                <span>- - - - -</span>
+            </div>
+        </div>
+        <div class="day-container">
+            <div class="day">Rabu</div>
+            <div class="lesson">
+              <span>B.Inggris</span>
+            </div>
+            <div class="lesson">
+              <span>Informatika</span>
+            </div>
+            <div class="lesson">
+              <span>Seni Budaya</span>
+            </div>
+            <div class="lesson">
+                <span>IPAS</span>
+            </div>
+            <div class="lesson">
+                <span>B.Indonesia</span>
+            </div>
+        </div>
+        <div class="day-container">
+            <div class="day">Kamis</div>
+            <div class="lesson">
+              <span>Sejarah</span>
+            </div>
+            <div class="lesson">
+              <span>Penjaskes</span>
+            </div>
+            <div class="lesson">
+              <span>Dasar-Dasar Produktif TJKT</span>
+            </div>
+            <div class="lesson">
+                <span>B.Jawa</span>
+            </div>
+            <div class="lesson">
+                <span>PAI</span>
+            </div>
+        </div>
+        <div class="day-container">
+            <div class="day">Jum'at</div>
+            <div class="lesson">
+              <span>PPKN</span>
+            </div>
+            <div class="lesson">
+              <span>MTK</span>
+            </div>
+            <div class="lesson">
+              <span>Informatika</span>
+            </div>
+            <div class="lesson">
+                <span>- - - - -</span>
+            </div>
+            <div class="lesson">
+                <span>- - - - -</span>
+            </div>
+        </div>
+        <div class="kaki-container">
+            <p>&copy; 2024 X-TKJ 2. All Rights Reserved.</p>
+            <p>
+                <a href="#about">Tentang Kami</a> |
+                <a href="#contact">Kontak</a> |
+                <a href="#privacy">Kebijakan Privasi</a>
+            </p>
+        </div>    
+    </div>
+
+    <script>
+        // Menangani klik pada hamburger menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobile-nav');
+
+        hamburger.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+        });
+    </script>
+
+</body>
+</html>
